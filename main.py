@@ -17,3 +17,4 @@ for i in data:
 
 print(sum0)
 print(sum1)
+print(sum0+sum1)

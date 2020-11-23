@@ -34,4 +34,8 @@ for i in data:
 
 for j in range(len(xtrain)):
     for i in xtrain[j]:
-        print(ord(i))
+        print(ord(i),end=" ")
+print()
+for j in range(len(xtest)):
+    for i in xtest[j]:
+        print(ord(i),end=" ")

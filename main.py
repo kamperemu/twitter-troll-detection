@@ -36,3 +36,4 @@ for i in range(len(xtrain)):
 
 for i in range(len(xtest)):
     print(ytest[i], " ", xtest[i])
+

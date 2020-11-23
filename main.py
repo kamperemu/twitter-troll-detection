@@ -31,9 +31,7 @@ for i in data:
             ytest.append(i["label"])
         sum1 += 1
         
-for i in range(len(xtrain)):
-    print(ytrain[i], " ", xtrain[i])
 
-for i in range(len(xtest)):
-    print(ytest[i], " ", xtest[i])
-
+for j in range(len(xtrain)):
+    for i in xtrain[j]:
+        print(ord(i))

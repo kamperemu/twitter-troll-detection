@@ -1,8 +1,8 @@
 # Importing the required modules
 
-import os
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
-import tensorflow
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras import layers
 import json
 
 
@@ -37,8 +37,7 @@ for i in data:
             xtest.append(i["content"])
             ytest.append(i["label"])
         sum1 += 1
-     
-     
+
 # Converting the input layer to ASCII values.
 
 xtrainord = []
@@ -52,5 +51,6 @@ for j in range(len(xtest)):
     for i in xtest[j]:
         xtestord[j].append(ord(i))
 
-print(xtrainord)
-print(xtestord)
+
+data_tensor = tf.ragged.constant(xtrainord)
+print(data_tensor)

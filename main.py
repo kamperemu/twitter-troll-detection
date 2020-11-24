@@ -54,3 +54,5 @@ for j in range(len(xtest)):
 
 data_tensor = tf.ragged.constant(xtrainord)
 print(data_tensor)
+
+

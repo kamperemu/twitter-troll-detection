@@ -1,4 +1,4 @@
-# Twitter Troll Detection
+# TWITTER TROLL DETECTION
 
 # Abstract
 In the present age of social media websites, trolls are inevitable. Trolls are people or bots who spread misinformation on social media
@@ -10,3 +10,7 @@ and combine it with the former models. These models are used to find out whether
 We can also classify these trolls according to their political agenda using unsupervised learning. We can then choose the most accurate model for direct implementation.
 
 # References
+# datasets
+https://github.com/fivethirtyeight/russian-troll-tweets/
+https://www.kaggle.com/vikasg/russian-troll-tweets
+https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls

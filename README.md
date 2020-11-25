@@ -1,3 +1,12 @@
 # Twitter Troll Detection
 
-We are going to be using the Twitter API to get data and use it to detect trolls on the internet. We are going to make a Neural Network based on how chat bots work, and use a similar method to automatically detect these trolls. Firstly, we will be using TensorFlow library in Python and then make a Neural Network model and testing the best possible variables to give the most accurate outputs. We will also classify the type of trolls in this Neural Network. After that, if we have enough time we shall convert the code into C# using our own library for Neural Network for efficiency purposes. We also hope to upload this onto a cloud server to provide access to all for FREE.
+# Abstract
+In the present age of social media websites, trolls are inevitable. Trolls are people or bots who spread misinformation on social media
+to push their political agenda. These trolls use fake accounts to stay anonymous and influence public opinion. 
+There is a problem with manual detection of trolls - humans too find it difficult to detect trolls and it isn't possible for humans to 
+check millions of messages that are uploaded everyday. Therefore, using AI to detect such trolls is much easier and efficient.
+Different models like SVM, neural networks, logistic regression can be used. These can also be used with pre-trained Natural Language Processing(NLP) models
+and combine it with the former models. These models are used to find out whether or not the message content is a troll or not by discovering patterns in these tweets
+We can also classify these trolls according to their political agenda using unsupervised learning. We can then choose the most accurate model for direct implementation.
+
+# References

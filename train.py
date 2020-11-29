@@ -12,7 +12,7 @@ import json
 # predefined variables
 vocab_size = 10000
 embedding_dim = 16
-max_length = 200
+max_words = 200
 trunc_type='post'
 padding_type='post'
 oov_tok = "<OOV>"
@@ -20,20 +20,20 @@ oov_tok = "<OOV>"
 
 # training data and testing data
 with open("datasets/test.json", 'r') as f:
-    data = json.load(f)
+    tweets = json.load(f)
 
 xtrain = []
 ytrain = []
 xtest = []
 ytest = []
 
-for item in data:
-    if item["type"] == "train":
-        xtrain.append(item['content'])
-        ytrain.append(item['label'])
-    if item["type"] == "test":
-        xtest.append(item['content'])
-        ytest.append(item['label'])
+for tweet in tweets:
+    if tweet["type"] == "train":
+        xtrain.append(tweet['content'])
+        ytrain.append(tweet['label'])
+    if tweet["type"] == "test":
+        xtest.append(tweet['content'])
+        ytest.append(tweet['label'])
 
 
 # Tokenization go brrr
@@ -44,19 +44,19 @@ word_index = tokenizer.word_index
 
 # preparing training data for neural network
 xtrainencoded = tokenizer.texts_to_sequences(xtrain)
-xtrainpadded = pad_sequences(xtrainencoded, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+xtrainpadded = pad_sequences(xtrainencoded, maxlen=max_words, padding=padding_type, truncating=trunc_type)
 xtrain = np.asarray(xtrainpadded).astype(np.float32)
 ytrain = np.asarray(ytrain).astype(np.float32)
 
 # preparing testing data for neural network
 xtestencoded = tokenizer.texts_to_sequences(xtest)
-xtestpadded = pad_sequences(xtestencoded, maxlen=max_length, padding=padding_type, truncating=trunc_type)
+xtestpadded = pad_sequences(xtestencoded, maxlen=max_words, padding=padding_type, truncating=trunc_type)
 xtest = np.asarray(xtestpadded).astype(np.float32)
 ytest = np.asarray(ytest).astype(np.float32)
 
 # neural network
 model = tf.keras.Sequential([
-    tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_length),
+    tf.keras.layers.Embedding(vocab_size, embedding_dim, input_length=max_words),
     tf.keras.layers.GlobalAveragePooling1D(),
     tf.keras.layers.Dense(24, activation='relu'),
     tf.keras.layers.Dense(1, activation='sigmoid')

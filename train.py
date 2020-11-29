@@ -20,14 +20,14 @@ oov_tok = "<OOV>"
 
 # training data and testing data
 with open("datasets/test.json", 'r') as f:
-    datastore = json.load(f)
+    data = json.load(f)
 
 xtrain = []
 ytrain = []
 xtest = []
 ytest = []
 
-for item in datastore:
+for item in data:
     if item["type"] == "train":
         xtrain.append(item['content'])
         ytrain.append(item['label'])

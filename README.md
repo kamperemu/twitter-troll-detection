@@ -11,7 +11,6 @@ We can also classify these trolls according to their political agenda using unsu
 
 ## References
 ### 1. Datasets
-https://github.com/fivethirtyeight/russian-troll-tweets/
 
 https://www.kaggle.com/vikasg/russian-troll-tweets
 

@@ -1,6 +1,6 @@
 # removes unnecessary logs
-# import os
-# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
+import os
+os.environ["TF_CPP_MIN_LOG_LEVEL"] = "2"
 
 # imports required for the training algorithm
 import tensorflow as tf
@@ -8,9 +8,7 @@ from tensorflow.keras.preprocessing.text import Tokenizer
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 import json
-
-
-
+import pickle
 
 
 # predefined variables
@@ -68,7 +66,7 @@ model = tf.keras.Sequential([
 model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
 numEpochs = 30
 history = model.fit(xtrain, ytrain, epochs=numEpochs, validation_data=(xtest, ytest), verbose=2)
-model.summary()
+#model.summary()
 '''
 # graphs
 import matplotlib.pyplot as plt
@@ -84,9 +82,10 @@ def plot_graphs(history, string):
 plot_graphs(history, "accuracy")
 plot_graphs(history, "loss")
 '''
+# saving the tokenizer
+with open('tokenizer.pickle', 'wb') as handle:
+    pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-# saving trained model for further use
-sentence = ["granny starting to fear spiders in the garden might be real", "damn pilots use autotune too!!!! This shit has gotten out of hand LOL"]
-sequences = tokenizer.texts_to_sequences(sentence)
-padded = pad_sequences(sequences, maxlen=maxInput, padding=padType, truncating=truncType)
-print(model.predict(padded))
+# saving trained model
+model.save("model")
+

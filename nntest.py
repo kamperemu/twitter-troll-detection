@@ -21,7 +21,9 @@ with open('tokenizer.pickle', 'rb') as file:
 
 model = tf.keras.models.load_model("model")
 
-sentence = [input()]
+n = int(input("no of sentences: "))
+sentence = [input() for _ in range(n)]
 sequences = tokenizer.texts_to_sequences(sentence)
 padded = pad_sequences(sequences, maxlen=maxInput, padding=padType, truncating=truncType)
+print(padded)
 print(model.predict(padded))

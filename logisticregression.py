@@ -11,6 +11,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import model_selection, naive_bayes, svm
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
+from sklearn.utils import shuffle
 
 
 
@@ -47,7 +48,7 @@ for index,entry in enumerate(tweets['content']):
     tweets.loc[index,'text_final'] = str(Final_words)
 
 
-
+tweets = shuffle(tweets)
 xtrain, xtest, ytrain, ytest = model_selection.train_test_split(tweets['text_final'],tweets['label'],test_size=0.3)
 
 Encoder = LabelEncoder()

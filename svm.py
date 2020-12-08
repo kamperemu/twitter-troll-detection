@@ -10,6 +10,7 @@ from nltk.corpus import wordnet as wn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import model_selection, naive_bayes, svm
 from sklearn.metrics import accuracy_score
+from sklearn.utils import shuffle
 
 
 
@@ -44,6 +45,8 @@ for index,entry in enumerate(tweets['content']):
     # The final processed set of words for each iteration will be stored in 'text_final'
     tweets.loc[index,'text_final'] = str(Final_words)
 
+
+tweets = shuffle(tweets)
 xtrain, xtest, ytrain, ytest = model_selection.train_test_split(tweets['text_final'],tweets['label'],test_size=0.3)
 
 Encoder = LabelEncoder()

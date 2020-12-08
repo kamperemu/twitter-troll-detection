@@ -61,7 +61,7 @@ xtest_Tfidf = Tfidf_vect.transform(xtest)
 
 # Classifier - Algorithm - SVM
 # fit the training dataset on the classifier
-clf = LogisticRegression()
+clf = LogisticRegression(max_iter=10000)
 clf.fit(xtrain_Tfidf,ytrain)
 # predict the labels on validation dataset
 pred = clf.predict(xtest_Tfidf)

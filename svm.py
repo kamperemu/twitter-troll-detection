@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy as np
 from nltk.tokenize import word_tokenize
 from nltk import pos_tag
 from nltk.corpus import stopwords
@@ -10,8 +9,7 @@ from nltk.corpus import wordnet as wn
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn import model_selection, naive_bayes, svm
 from sklearn.metrics import accuracy_score
-from sklearn.utils import shuffle
-
+import pickle
 
 
 # loading and modifying the tweets for the algorithm
@@ -47,5 +45,8 @@ xtrain, xtest, ytrain, ytest = model_selection.train_test_split(tweets['textFina
 # training the classifier algorithm
 clf = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto')
 clf.fit(xtrain,ytrain)
+pickle.dump(clf, open("savedModel/svm/basic/model.sav","wb"))
+
+loaded_model = pickle.load(open("svm.sav", 'rb'))
 pred = clf.predict(xtest)
 print("SVM Accuracy Score -> ",accuracy_score(pred, ytest)*100)

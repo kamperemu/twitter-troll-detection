@@ -1,4 +1,3 @@
 .vscode
-model/
-tokenizer.pickle
+savedModel/
 temp/

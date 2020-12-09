@@ -16,14 +16,13 @@ padType='post'
 oov = "<OOV>"
 
 # loading the tokenizer and model
-with open('tokenizer.pickle', 'rb') as file:
+with open('savedModel/nn/basic/tokenizer.pickle', 'rb') as file:
     tokenizer = pickle.load(file)
 
-model = tf.keras.models.load_model("model")
+model = tf.keras.models.load_model("savedModel/nn/basic/model")
 
 n = int(input("no of sentences: "))
 sentence = [input() for _ in range(n)]
 sequences = tokenizer.texts_to_sequences(sentence)
 padded = pad_sequences(sequences, maxlen=maxInput, padding=padType, truncating=truncType)
-print(padded)
 print(model.predict(padded))

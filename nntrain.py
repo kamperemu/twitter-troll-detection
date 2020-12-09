@@ -83,9 +83,9 @@ plot_graphs(history, "accuracy")
 plot_graphs(history, "loss")
 '''
 # saving the tokenizer
-with open('tokenizer.pickle', 'wb') as handle:
+with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 # saving trained model
-model.save("model")
+model.save("savedModel/nn/basic/model")
 

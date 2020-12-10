@@ -1,5 +1,11 @@
 # Twitter Troll Detection
 
+## abbreviations
+nn - neural network
+nb - naive bayes
+svm - support vector machine
+logreg - logistic regression
+
 ## Abstract
 In the present age of social media websites, trolls are inevitable. Trolls are people or bots who spread misinformation on social media
 to push their political agenda. These trolls use fake accounts to stay anonymous and influence public opinion. 

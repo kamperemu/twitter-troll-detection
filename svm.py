@@ -41,6 +41,14 @@ for index,entry in enumerate(tweets['content']):
 
 xtrain, xtest, ytrain, ytest = model_selection.train_test_split(tweets['textFinal'],tweets['label'],test_size=0.3)
 
+# encoding the data
+Encoder = LabelEncoder()
+ytrain = Encoder.fit_transform(ytrain)
+ytest = Encoder.fit_transform(ytest)
+Tfidf_vect = TfidfVectorizer(max_features=5000)
+Tfidf_vect.fit(tweets['textFinal'])
+xtrain = Tfidf_vect.transform(xtrain)
+xtest = Tfidf_vect.transform(xtest)
 
 # training the classifier algorithm
 clf = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto')

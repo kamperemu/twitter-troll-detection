@@ -1,10 +1,16 @@
 # Twitter Troll Detection
 
-## abbreviations
+## file name abbreviations
+### prefix
+bas - basic
+vec - word2vec
+ber - BERT
+
+### root word
 nn - neural network
 nb - naive bayes
 svm - support vector machine
-logreg - logistic regression
+lr - logistic regression
 
 ## Abstract
 In the present age of social media websites, trolls are inevitable. Trolls are people or bots who spread misinformation on social media

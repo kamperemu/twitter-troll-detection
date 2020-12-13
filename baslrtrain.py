@@ -56,5 +56,8 @@ xtest = Tfidf_vect.transform(xtest)
 # training the classifier algorithm
 clf = LogisticRegression(max_iter=10000)
 clf.fit(xtrain,ytrain)
+pickle.dump(clf, open("savedModel/lr/basic/model.sav","wb"))
+pickle.dump(Tfidf_vect, open("savedModel/lr/basic/Tfidf.sav","wb"))
+
 pred = clf.predict(xtest)
 print("Logistic Regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)

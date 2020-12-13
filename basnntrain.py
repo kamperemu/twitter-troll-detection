@@ -88,4 +88,3 @@ with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:
 
 # saving trained model
 model.save("savedModel/nn/basic/model")
-

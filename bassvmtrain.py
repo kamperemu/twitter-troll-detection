@@ -54,7 +54,7 @@ xtest = Tfidf_vect.transform(xtest)
 clf = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto')
 clf.fit(xtrain,ytrain)
 pickle.dump(clf, open("savedModel/svm/basic/model.sav","wb"))
+pickle.dump(Tfidf_vect, open("savedModel/svm/basic/Tfidf.sav","wb"))
 
-loaded_model = pickle.load(open("svm.sav", 'rb'))
 pred = clf.predict(xtest)
 print("SVM Accuracy Score -> ",accuracy_score(pred, ytest)*100)

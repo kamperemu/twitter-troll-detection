@@ -53,6 +53,9 @@ xtest = Tfidf_vect.transform(xtest)
 # training the classifier algorithm
 clf = naive_bayes.MultinomialNB()
 clf.fit(xtrain,ytrain)
+pickle.dump(clf, open("savedModel/nb/basic/model.sav","wb"))
+pickle.dump(Tfidf_vect, open("savedModel/nb/basic/Tfidf.sav","wb"))
+
 pred = clf.predict(xtest)
 print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 

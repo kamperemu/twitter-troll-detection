@@ -28,3 +28,8 @@ https://www.kaggle.com/vikasg/russian-troll-tweets
 
 https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls   
 
+### 2. Algorithms
+
+https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm-and-naive-bayes-with-python-421db3a72d34
+
+https://goo.gle/tfw-sarcembed

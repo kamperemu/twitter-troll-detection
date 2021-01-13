@@ -1,9 +1,10 @@
 # Twitter Troll Detection
 
+this project is not a commercial product currently, its mostly used for my research work.
+
 ## file name abbreviations
 ### prefix
 bas - basic
-vec - word2vec
 ber - BERT
 
 ### root word
@@ -23,9 +24,19 @@ and combine it with the former models. These models are used to find out whether
 ## References
 ### 1. Datasets
 
-https://www.kaggle.com/vikasg/russian-troll-tweets
+https://www.kaggle.com/crowdflower/twitter-user-gender-classification
 
-https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls   
+https://www.kaggle.com/vikasg/russian-troll-tweets?ref=hackernoon.com 
+
+https://www.kaggle.com/kazanova/sentiment140
+
+https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls
+
+https://www.data.gouv.fr/fr/datasets/credibility-corpus-with-several-datasets-twitter-web-database-in-french-and-english/?ref=hackernoon.com#_
+
+https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBXKFD&version=2.2
+
+https://github.com/fivethirtyeight/russian-troll-tweets
 
 ### 2. Algorithms
 
@@ -33,6 +44,12 @@ https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm
 
 https://goo.gle/tfw-sarcembed
 
+https://albertauyeung.github.io/2020/06/19/bert-tokenization.html
+
 ### 3. research
 
 https://www.dsayce.com/social-media/tweets-day/
+
+https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjWjoWmhJnuAhX-63MBHXKTBRIQFjAAegQIBRAC&url=https%3A%2F%2Fwww.mdpi.com%2F1999-5903%2F12%2F2%2F31%2Fpdf&usg=AOvVaw2zSU0NTCQH7KbmAokchv2S
+
+

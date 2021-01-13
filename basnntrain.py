@@ -9,7 +9,7 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import numpy as np
 import json
 import pickle
-
+import random
 
 # predefined variables
 vocabSize = 10000
@@ -19,24 +19,26 @@ truncType='post'
 padType='post'
 oov = "<OOV>"
 
-
 # training data and testing data
 with open("datasets/test.json", 'r') as f:
     tweets = json.load(f)
+random.shuffle(tweets)
+print(tweets)
 
+train = tweets[:int(round(4*len(tweets)/5))]
+test = tweets[int(round(4*len(tweets)/5)):len(tweets)]
 xtrain = []
 ytrain = []
 xtest = []
 ytest = []
 
-for tweet in tweets:
-    if tweet["type"] == "train":
-        xtrain.append(tweet['content'])
-        ytrain.append(tweet['label'])
-    if tweet["type"] == "test":
-        xtest.append(tweet['content'])
-        ytest.append(tweet['label'])
-
+for tweet in train:
+    xtrain.append(tweet['content'])
+    ytrain.append(tweet['label'])
+    
+for tweet in test:
+    xtest.append(tweet['content'])
+    ytest.append(tweet['label'])
 
 # tokenization go brrr
 tokenizer = Tokenizer(num_words=vocabSize, oov_token=oov)

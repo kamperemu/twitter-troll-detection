@@ -5,7 +5,6 @@ this project is not a commercial product currently, its mostly used for my resea
 ## file name abbreviations
 ### prefix
 bas - basic
-ber - BERT
 
 ### root word
 nn - neural network

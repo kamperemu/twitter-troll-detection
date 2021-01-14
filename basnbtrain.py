@@ -14,6 +14,7 @@ import pickle
 
 # loading and modifying the tweets for the algorithm
 tweets = pd.read_csv("datasets/test.csv")
+tweets = tweets.sample(frac = 1)
 
 tweets['content'] = tweets['content'].astype('str')
 tweets['content'].dropna(inplace=True)

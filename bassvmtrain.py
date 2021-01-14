@@ -14,6 +14,7 @@ import pickle
 
 # loading and modifying the tweets for the algorithm
 tweets = pd.read_csv("datasets/test.csv")
+tweets = tweets.sample(frac = 1)
 
 tweets['content'] = tweets['content'].astype('str')
 tweets['content'].dropna(inplace=True)
@@ -51,7 +52,7 @@ xtrain = Tfidf_vect.transform(xtrain)
 xtest = Tfidf_vect.transform(xtest)
 
 # training the classifier algorithm
-clf = svm.SVC(C=1.0, kernel='linear', degree=3, gamma='auto')
+clf = svm.SVC(C=0.1, kernel='linear', degree=3, gamma='auto')
 clf.fit(xtrain,ytrain)
 pickle.dump(clf, open("savedModel/svm/basic/model.sav","wb"))
 pickle.dump(Tfidf_vect, open("savedModel/svm/basic/Tfidf.sav","wb"))

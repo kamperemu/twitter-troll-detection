@@ -23,7 +23,6 @@ oov = "<OOV>"
 with open("datasets/test.json", 'r') as f:
     tweets = json.load(f)
 random.shuffle(tweets)
-print(tweets)
 
 train = tweets[:int(round(4*len(tweets)/5))]
 test = tweets[int(round(4*len(tweets)/5)):len(tweets)]

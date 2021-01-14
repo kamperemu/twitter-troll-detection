@@ -45,16 +45,16 @@ ytrain = labels[:int(round(4*(labels.size)/5))]
 ytest = labels[int(round(4*(labels.size)/5)):]
 
 #training the model
-lr=SGDClassifier(loss='hinge',max_iter=500,random_state=42)
-lr_bow=lr.fit(cvxtrain,ytrain)
-lr_tfidf=lr.fit(tvxtrain,ytrain)
+svm=SGDClassifier(loss='hinge',max_iter=500,random_state=42)
+svm_bow=svm.fit(cvxtrain,ytrain)
+svm_tfidf=svm.fit(tvxtrain,ytrain)
 
-pred = lr_bow.predict(cvxtest)
+pred = svm_bow.predict(cvxtest)
 print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = lr_tfidf.predict(tvxtest)
+pred = svm_tfidf.predict(tvxtest)
 print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 
-pickle.dump(lr_bow, open("savedModel/svm/bowmodel.sav","wb"))
-pickle.dump(lr_tfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
+pickle.dump(svm_bow, open("savedModel/svm/bowmodel.sav","wb"))
+pickle.dump(svm_tfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
 pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))

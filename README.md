@@ -44,12 +44,9 @@ https://www.kaggle.com/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews
 
 https://goo.gle/tfw-sarcembed
 
-https://albertauyeung.github.io/2020/06/19/bert-tokenization.html
-
 ### 3. research
 
 https://www.dsayce.com/social-media/tweets-day/
 
-https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwjWjoWmhJnuAhX-63MBHXKTBRIQFjAAegQIBRAC&url=https%3A%2F%2Fwww.mdpi.com%2F1999-5903%2F12%2F2%2F31%2Fpdf&usg=AOvVaw2zSU0NTCQH7KbmAokchv2S
 
 

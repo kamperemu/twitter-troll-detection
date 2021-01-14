@@ -8,8 +8,11 @@ bas - basic
 
 ### root word
 nn - neural network
+
 nb - naive bayes
+
 svm - support vector machine
+
 lr - logistic regression
 
 ## Abstract

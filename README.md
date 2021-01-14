@@ -40,7 +40,7 @@ https://github.com/fivethirtyeight/russian-troll-tweets
 
 ### 2. Algorithms
 
-https://medium.com/@bedigunjit/simple-guide-to-text-classification-nlp-using-svm-and-naive-bayes-with-python-421db3a72d34
+https://www.kaggle.com/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews
 
 https://goo.gle/tfw-sarcembed
 

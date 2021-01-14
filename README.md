@@ -1,6 +1,6 @@
 # Twitter Troll Detection
 
-this project is not a commercial product currently, its mostly used for my research work.
+this project is not a commercial product currently, its mostly used for research work.
 
 ## file name abbreviations
 ### prefix

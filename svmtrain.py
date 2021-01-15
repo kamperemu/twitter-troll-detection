@@ -3,7 +3,6 @@ from preprocesssklearn import *
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.preprocessing import LabelBinarizer
 from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 import warnings
@@ -27,11 +26,6 @@ tweets = tweets.sample(frac = 1)
 
 xtrain = tweets.content[:int(round(4*(tweets['content'].size)/5))]
 xtest = tweets.content[int(round(4*(tweets['content'].size)/5)):]
-
-#labeling the sentient data
-lb=LabelBinarizer()
-labels=lb.fit_transform(tweets['label'])
-
 ytrain = labels[:int(round(4*(labels.size)/5))]
 ytest = labels[int(round(4*(labels.size)/5)):]
 '''
@@ -68,11 +62,6 @@ for i in range(len(xtest)):
     xtest[i] = remove_special_characters(xtest[i])
     xtest[i] = simple_stemmer(xtest[i])
     xtest[i] = remove_stopwords(xtest[i])
-
-#labeling the sentient data
-lb=LabelBinarizer()
-ytrain=lb.fit_transform(ytrain)
-ytest=lb.transform(ytest)
 
 
 

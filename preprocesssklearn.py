@@ -3,12 +3,9 @@ import nltk
 from nltk.tokenize.toktok import ToktokTokenizer
 
 
-def denoise_text(text):
-    return re.sub('\[[^]]*\]', '', text)
-
 
 def remove_special_characters(text, remove_digits=True):
-    pattern=r'[^a-zA-z0-9\s]'
+    pattern=r'[^a-zA-Z0-9\s]'
     text=re.sub(pattern,'',text)
     return text
 

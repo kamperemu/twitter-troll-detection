@@ -60,13 +60,11 @@ for tweet in test:
 
 # preprocessing
 for i in range(len(xtrain)):
-    xtrain[i] = denoise_text(xtrain[i])
     xtrain[i] = remove_special_characters(xtrain[i])
     xtrain[i] = simple_stemmer(xtrain[i])
     xtrain[i] = remove_stopwords(xtrain[i])
 
 for i in range(len(xtest)):
-    xtest[i] = denoise_text(xtest[i])
     xtest[i] = remove_special_characters(xtest[i])
     xtest[i] = simple_stemmer(xtest[i])
     xtest[i] = remove_stopwords(xtest[i])

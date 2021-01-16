@@ -53,3 +53,5 @@ https://www.dsayce.com/social-media/tweets-day/
 https://monkeylearn.com/blog/what-is-tf-idf/
 
 https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/
+
+https://www.machinelearningplus.com/predictive-modeling/how-naive-bayes-algorithm-works-with-example-and-full-code/

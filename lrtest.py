@@ -6,7 +6,6 @@ n = int(input("no of sentences: "))
 sentences = [str(input("enter sentence:")) for _ in range(n)]
 # preprocessing
 for i in range(len(sentences)):
-    sentences[i] = denoise_text(sentences[i])
     sentences[i] = remove_special_characters(sentences[i])
     sentences[i] = simple_stemmer(sentences[i])
     sentences[i] = remove_stopwords(sentences[i])

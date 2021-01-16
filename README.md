@@ -50,6 +50,8 @@ https://goo.gle/tfw-sarcembed
 
 https://www.dsayce.com/social-media/tweets-day/
 
+https://www.investopedia.com/terms/m/machine-learning.asp
+
 https://monkeylearn.com/blog/what-is-tf-idf/
 
 https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/

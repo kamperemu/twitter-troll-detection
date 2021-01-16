@@ -81,7 +81,21 @@ def plot_graphs(history, string):
   
 plot_graphs(history, "accuracy")
 plot_graphs(history, "loss")
+
+import seaborn as sn
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, plot_precision_recall_curve, plot_roc_curve
+import pandas as pd
+
+pred = tf.round(model.predict(xtestpadded))
+array = confusion_matrix(tf.round(ytest),pred,labels=[1,0])
+df_cm = pd.DataFrame(array, range(2), range(2))
+sn.set(font_scale=1.4) # for label size
+sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
+
+plt.show()
 '''
+
 # saving the tokenizer
 with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)

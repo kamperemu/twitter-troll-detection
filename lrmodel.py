@@ -94,3 +94,18 @@ pickle.dump(lrBow, open("savedModel/lr/bowmodel.sav","wb"))
 pickle.dump(lrTfidf, open("savedModel/lr/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/lr/Tfidf.sav","wb"))
 pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))
+
+'''
+# graphs
+import seaborn as sn
+import matplotlib.pyplot as plt
+from sklearn.metrics import confusion_matrix, plot_precision_recall_curve, plot_roc_curve
+import pandas as pd
+
+array = confusion_matrix(ytest,pred,labels=[1,0])
+df_cm = pd.DataFrame(array, range(2), range(2))
+sn.set(font_scale=1.4) # for label size
+sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
+
+plt.show()
+'''

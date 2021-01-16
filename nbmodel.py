@@ -3,7 +3,7 @@ from preprocesssklearn import *
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
+from sklearn import naive_bayes
 from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings('ignore')
@@ -15,10 +15,9 @@ tweets = pd.read_csv("datasets/test.csv")
 
 # preprocessing
 tweets['content']=tweets['content'].apply(str)
-tweets['content']=tweets['content'].apply(denoise_text)
-tweets['content']=tweets['content'].apply(remove_special_characters)
-tweets['content']=tweets['content'].apply(simple_stemmer)
-tweets['content']=tweets['content'].apply(remove_stopwords)
+tweets['content']=tweets['content'].apply(removespchar)
+tweets['content']=tweets['content'].apply(stemmer)
+tweets['content']=tweets['content'].apply(removestopwords)
 
 
 # encoding
@@ -54,14 +53,14 @@ for tweet in test:
 
 # preprocessing
 for i in range(len(xtrain)):
-    xtrain[i] = remove_special_characters(xtrain[i])
-    xtrain[i] = simple_stemmer(xtrain[i])
-    xtrain[i] = remove_stopwords(xtrain[i])
+    xtrain[i] = removespchar(xtrain[i])
+    xtrain[i] = stemmer(xtrain[i])
+    xtrain[i] = removestopwords(xtrain[i])
 
 for i in range(len(xtest)):
-    xtest[i] = remove_special_characters(xtest[i])
-    xtest[i] = simple_stemmer(xtest[i])
-    xtest[i] = remove_stopwords(xtest[i])
+    xtest[i] = removespchar(xtest[i])
+    xtest[i] = stemmer(xtest[i])
+    xtest[i] = removestopwords(xtest[i])
 
 
 
@@ -79,19 +78,17 @@ tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
 tvxtest=tv.transform(xtest)
 
-
-
 #training the model
-lr=LogisticRegression(penalty='l2',max_iter=500,C=1,random_state=42)
-lr_bow=lr.fit(cvxtrain,ytrain)
-lr_tfidf=lr.fit(tvxtrain,ytrain)
+nb=naive_bayes.MultinomialNB()
+nbBow=nb.fit(cvxtrain,ytrain)
+nbTfidf=nb.fit(tvxtrain,ytrain)
 
-pred = lr_bow.predict(cvxtest)
-print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = lr_tfidf.predict(tvxtest)
-print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = nbBow.predict(cvxtest)
+print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = nbTfidf.predict(tvxtest)
+print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 
-pickle.dump(lr_bow, open("savedModel/lr/bowmodel.sav","wb"))
-pickle.dump(lr_tfidf, open("savedModel/lr/tfidfmodel.sav","wb"))
-pickle.dump(tv, open("savedModel/lr/Tfidf.sav","wb"))
-pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))
+pickle.dump(nbBow, open("savedModel/nb/bowmodel.sav","wb"))
+pickle.dump(nbTfidf, open("savedModel/nb/tfidfmodel.sav","wb"))
+pickle.dump(tv, open("savedModel/nb/Tfidf.sav","wb"))
+pickle.dump(cv, open("savedModel/nb/bow.sav","wb"))

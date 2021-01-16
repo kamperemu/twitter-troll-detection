@@ -3,7 +3,7 @@ from preprocesssklearn import *
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings('ignore')
@@ -15,10 +15,9 @@ tweets = pd.read_csv("datasets/test.csv")
 
 # preprocessing
 tweets['content']=tweets['content'].apply(str)
-tweets['content']=tweets['content'].apply(denoise_text)
-tweets['content']=tweets['content'].apply(remove_special_characters)
-tweets['content']=tweets['content'].apply(simple_stemmer)
-tweets['content']=tweets['content'].apply(remove_stopwords)
+tweets['content']=tweets['content'].apply(removespchar)
+tweets['content']=tweets['content'].apply(stemmer)
+tweets['content']=tweets['content'].apply(removestopwords)
 
 
 # encoding
@@ -54,14 +53,14 @@ for tweet in test:
 
 # preprocessing
 for i in range(len(xtrain)):
-    xtrain[i] = remove_special_characters(xtrain[i])
-    xtrain[i] = simple_stemmer(xtrain[i])
-    xtrain[i] = remove_stopwords(xtrain[i])
+    xtrain[i] = removespchar(xtrain[i])
+    xtrain[i] = stemmer(xtrain[i])
+    xtrain[i] = removestopwords(xtrain[i])
 
 for i in range(len(xtest)):
-    xtest[i] = remove_special_characters(xtest[i])
-    xtest[i] = simple_stemmer(xtest[i])
-    xtest[i] = remove_stopwords(xtest[i])
+    xtest[i] = removespchar(xtest[i])
+    xtest[i] = stemmer(xtest[i])
+    xtest[i] = removestopwords(xtest[i])
 
 
 
@@ -79,17 +78,19 @@ tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
 tvxtest=tv.transform(xtest)
 
+
+
 #training the model
-svm=SGDClassifier(loss='hinge',max_iter=500,random_state=42)
-svm_bow=svm.fit(cvxtrain,ytrain)
-svm_tfidf=svm.fit(tvxtrain,ytrain)
+lr=LogisticRegression(penalty='l2',max_iter=500,C=1,random_state=42)
+lrBow=lr.fit(cvxtrain,ytrain)
+lrTfidf=lr.fit(tvxtrain,ytrain)
 
-pred = svm_bow.predict(cvxtest)
-print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = svm_tfidf.predict(tvxtest)
-print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = lrBow.predict(cvxtest)
+print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = lrTfidf.predict(tvxtest)
+print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 
-pickle.dump(svm_bow, open("savedModel/svm/bowmodel.sav","wb"))
-pickle.dump(svm_tfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
-pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
-pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
+pickle.dump(lrBow, open("savedModel/lr/bowmodel.sav","wb"))
+pickle.dump(lrTfidf, open("savedModel/lr/tfidfmodel.sav","wb"))
+pickle.dump(tv, open("savedModel/lr/Tfidf.sav","wb"))
+pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))

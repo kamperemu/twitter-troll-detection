@@ -3,7 +3,7 @@ from preprocesssklearn import *
 import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn import naive_bayes
+from sklearn.linear_model import SGDClassifier
 from sklearn.metrics import accuracy_score
 import warnings
 warnings.filterwarnings('ignore')
@@ -15,10 +15,9 @@ tweets = pd.read_csv("datasets/test.csv")
 
 # preprocessing
 tweets['content']=tweets['content'].apply(str)
-tweets['content']=tweets['content'].apply(denoise_text)
-tweets['content']=tweets['content'].apply(remove_special_characters)
-tweets['content']=tweets['content'].apply(simple_stemmer)
-tweets['content']=tweets['content'].apply(remove_stopwords)
+tweets['content']=tweets['content'].apply(removespchar)
+tweets['content']=tweets['content'].apply(stemmer)
+tweets['content']=tweets['content'].apply(removestopwords)
 
 
 # encoding
@@ -54,14 +53,14 @@ for tweet in test:
 
 # preprocessing
 for i in range(len(xtrain)):
-    xtrain[i] = remove_special_characters(xtrain[i])
-    xtrain[i] = simple_stemmer(xtrain[i])
-    xtrain[i] = remove_stopwords(xtrain[i])
+    xtrain[i] = removespchar(xtrain[i])
+    xtrain[i] = stemmer(xtrain[i])
+    xtrain[i] = removestopwords(xtrain[i])
 
 for i in range(len(xtest)):
-    xtest[i] = remove_special_characters(xtest[i])
-    xtest[i] = simple_stemmer(xtest[i])
-    xtest[i] = remove_stopwords(xtest[i])
+    xtest[i] = removespchar(xtest[i])
+    xtest[i] = stemmer(xtest[i])
+    xtest[i] = removestopwords(xtest[i])
 
 
 
@@ -80,16 +79,16 @@ tvxtrain=tv.fit_transform(xtrain)
 tvxtest=tv.transform(xtest)
 
 #training the model
-nb=naive_bayes.MultinomialNB()
-nb_bow=nb.fit(cvxtrain,ytrain)
-nb_tfidf=nb.fit(tvxtrain,ytrain)
+svm=SGDClassifier(loss='hinge',max_iter=500,random_state=42)
+svmBow=svm.fit(cvxtrain,ytrain)
+svmTfidf=svm.fit(tvxtrain,ytrain)
 
-pred = nb_bow.predict(cvxtest)
-print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = nb_tfidf.predict(tvxtest)
-print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = svmBow.predict(cvxtest)
+print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = svmTfidf.predict(tvxtest)
+print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 
-pickle.dump(nb_bow, open("savedModel/nb/bowmodel.sav","wb"))
-pickle.dump(nb_tfidf, open("savedModel/nb/tfidfmodel.sav","wb"))
-pickle.dump(tv, open("savedModel/nb/Tfidf.sav","wb"))
-pickle.dump(cv, open("savedModel/nb/bow.sav","wb"))
+pickle.dump(svmBow, open("savedModel/svm/bowmodel.sav","wb"))
+pickle.dump(svmTfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
+pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
+pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))

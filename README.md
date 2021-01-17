@@ -8,7 +8,7 @@ You need to install the following modules on python 3.8.5 - tensorflow,numpy,pic
 
 extract the data.rar file in order to use the main dataset
 
-You can change the smallerdata.json file to data.json file if you want to try out the faster dataset (The smallerdata.json has only 30,000 tweets while the main file has 1,000,000 tweets). The smallerdata dataset will take significantly less time than the main datset.
+You can change the smallerdata.json file to data.json file if you want to try out the faster dataset (The smallerdata.json has only 30,000 tweets while the main file has 1,000,000 tweets). The smallerdata dataset will take significantly less time than the main dataset.
 
 NOTE: You can create your own dataset by creating a csv (with encoding unicode UTF-8) with headers content and label where the content has tweets and the label says whether the data is a troll or not (the label doesn't necessarily have to classify trolls it could classify whatever you want)
 

@@ -94,7 +94,7 @@ pickle.dump(svmTfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
 #pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
 
-
+'''
 # graphs
 import seaborn as sn
 import matplotlib.pyplot as plt
@@ -107,3 +107,4 @@ sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
+'''

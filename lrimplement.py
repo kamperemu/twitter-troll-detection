@@ -19,3 +19,4 @@ tvsentences = tv.transform(sentences)
 cvsentences = cv.transform(sentences)
 print(lrBow.predict(cvsentences))
 print(lrTfidf.predict(tvsentences))
+

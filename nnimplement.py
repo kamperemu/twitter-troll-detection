@@ -26,3 +26,4 @@ sentences = [input("Enter sentence:") for _ in range(n)]
 sequences = tokenizer.texts_to_sequences(sentences)
 padded = pad_sequences(sequences, maxlen=maxInput, padding=padType, truncating=truncType)
 print(tf.round(model.predict(padded)))
+

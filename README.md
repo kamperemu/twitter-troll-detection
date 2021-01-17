@@ -2,6 +2,14 @@
 
 this project is not a commercial product currently, its mostly used for research work.
 
+## Instructions
+
+You need to install the following modules on python 3.8.5 - tensorflow,numpy,pickle,matplotlib,seaborn,sklearn,pandas,nltk
+
+extract the data.rar file in order to use the main dataset
+
+You can change the smallerdata.json file to data.json file if you want to try out the faster dataset. (The smallerdata.json has only 30,000 tweets while the main file has 1,000,000 tweets)
+
 ## file name abbreviations
 
 ### root word

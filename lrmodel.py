@@ -29,6 +29,7 @@ ytrain = labels[:int(round(4*(labels.size)/5))]
 ytest = labels[int(round(4*(labels.size)/5)):]
 '''
 # json algo
+print("loading dataset")
 import json
 import random
 # training data and testing data
@@ -50,7 +51,12 @@ for tweet in test:
     xtest.append(tweet['content'])
     ytest.append(tweet['label'])
 
-
+print("dataset loaded")
+print()
+print()
+print()
+print()
+print("preprocessing data")
 # preprocessing
 for i in range(len(xtrain)):
     xtrain[i] = removespchar(xtrain[i])
@@ -61,12 +67,15 @@ for i in range(len(xtest)):
     xtest[i] = removespchar(xtest[i])
     xtest[i] = stemmer(xtest[i])
     xtest[i] = removestopwords(xtest[i])
-
-
+print("data preprocessed")
+print()
+print()
+print()
+print()
 
 
 # common for json and csv
-
+print("encoding data")
 '''
 #Count vectorizer for bag of words
 cv=CountVectorizer(min_df=0,max_df=1,binary=False,ngram_range=(1,3))
@@ -77,25 +86,37 @@ cvxtest=cv.transform(xtest)
 tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
 tvxtest=tv.transform(xtest)
+print("data encoded")
+print()
+print()
+print()
+print()
 
-
-
+print("training the model")
 #training the model
 lr=LogisticRegression(penalty='l2',max_iter=500,C=1,random_state=42)
 # lrBow=lr.fit(cvxtrain,ytrain)
 lrTfidf=lr.fit(tvxtrain,ytrain)
-
+print("model trained")
+print()
+print()
+print()
+print()
 # pred = lrBow.predict(cvxtest)
 # print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 pred = lrTfidf.predict(tvxtest)
 print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-
+print()
+print()
+print()
+print()
+print("saving the encoder and model")
 # pickle.dump(lrBow, open("savedModel/lr/bowmodel.sav","wb"))
 pickle.dump(lrTfidf, open("savedModel/lr/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/lr/Tfidf.sav","wb"))
 # pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))
-
-
+print("encoder and model saved")
+'''
 # graphs
 import seaborn as sn
 import matplotlib.pyplot as plt
@@ -108,4 +129,4 @@ sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
-
+'''

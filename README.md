@@ -10,6 +10,8 @@ extract the data.rar file in order to use the main dataset
 
 You can change the smallerdata.json file to data.json file if you want to try out the faster dataset. (The smallerdata.json has only 30,000 tweets while the main file has 1,000,000 tweets)
 
+You can create your own dataset by creating a csv (with encoding unicode UTF-8) with headers content and label where the content has tweets and the label says whether the data is a troll or not (the label doesn't necessarily have to classify trolls it could classify whatever you want)
+
 ## file name abbreviations
 
 ### root word

@@ -19,6 +19,7 @@ truncType='post'
 padType='post'
 oov = "<OOV>"
 
+print("loading dataset")
 # training data and testing data
 with open("datasets/data.json", 'r') as f:
     tweets = json.load(f)
@@ -37,8 +38,13 @@ for tweet in train:
 for tweet in test:
     xtest.append(tweet['content'])
     ytest.append(tweet['label'])
-
+print("dataset loaded")
+print()
+print()
+print()
+print()
 # tokenization go brrr
+print("encoding data")
 tokenizer = Tokenizer(num_words=vocabSize, oov_token=oov)
 tokenizer.fit_on_texts(xtrain)
 
@@ -56,6 +62,11 @@ xtestpadded = pad_sequences(xtestencoded, maxlen=maxInput, padding=padType, trun
 xtest = np.asarray(xtestpadded).astype(np.float32)
 ytest = np.asarray(ytest).astype(np.float32)
 
+print("data encoded")
+print()
+print()
+print()
+print()
 # neural network
 model = tf.keras.Sequential([
     tf.keras.layers.Embedding(vocabSize, outputDim, input_length=maxInput),
@@ -65,9 +76,14 @@ model = tf.keras.Sequential([
 ])
 model.compile(loss='binary_crossentropy',optimizer='adam',metrics=['accuracy'])
 numEpochs = 20
+print("training the model")
 history = model.fit(xtrain, ytrain, epochs=numEpochs, validation_data=(xtest, ytest), verbose=2)
 #model.summary()
-
+print("model trained")
+print()
+print()
+print()
+print()
 '''
 # graphs
 import matplotlib.pyplot as plt
@@ -96,11 +112,11 @@ sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
 '''
-
+print("saving the encoder and model")
 # saving the tokenizer
 with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 # saving trained model
 model.save("savedModel/nn/basic/model")
-
+print("encoder and model saved")

@@ -32,7 +32,7 @@ ytest = labels[int(round(4*(labels.size)/5)):]
 import json
 import random
 # training data and testing data
-with open("datasets/test.json", 'r') as f:
+with open("datasets/data.json", 'r') as f:
     tweets = json.load(f)
 random.shuffle(tweets)
 train = tweets[:int(round(4*len(tweets)/5))]
@@ -67,12 +67,12 @@ for i in range(len(xtest)):
 
 # common for json and csv
 
-
+'''
 #Count vectorizer for bag of words
 cv=CountVectorizer(min_df=0,max_df=1,binary=False,ngram_range=(1,3))
 cvxtrain=cv.fit_transform(xtrain)
 cvxtest=cv.transform(xtest)
-
+'''
 #Tfidf vectorizer
 tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
@@ -80,25 +80,25 @@ tvxtest=tv.transform(xtest)
 
 #training the model
 nb=naive_bayes.MultinomialNB()
-nbBow=nb.fit(cvxtrain,ytrain)
+# nbBow=nb.fit(cvxtrain,ytrain)
 nbTfidf=nb.fit(tvxtrain,ytrain)
 
-pred = nbBow.predict(cvxtest)
-print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+# pred = nbBow.predict(cvxtest)
+# print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 pred = nbTfidf.predict(tvxtest)
 print("Naive Bayes Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 
-pickle.dump(nbBow, open("savedModel/nb/bowmodel.sav","wb"))
+# pickle.dump(nbBow, open("savedModel/nb/bowmodel.sav","wb"))
 pickle.dump(nbTfidf, open("savedModel/nb/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/nb/Tfidf.sav","wb"))
-pickle.dump(cv, open("savedModel/nb/bow.sav","wb"))
+# pickle.dump(cv, open("savedModel/nb/bow.sav","wb"))
 
 
-
+'''
 # graphs
 import seaborn as sn
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, plot_precision_recall_curve, plot_roc_curve
+from sklearn.metrics import confusion_matrix
 import pandas as pd
 
 array = confusion_matrix(ytest,pred,labels=[1,0])
@@ -107,3 +107,4 @@ sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
+'''

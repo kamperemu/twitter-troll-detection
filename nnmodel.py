@@ -20,7 +20,7 @@ padType='post'
 oov = "<OOV>"
 
 # training data and testing data
-with open("datasets/test.json", 'r') as f:
+with open("datasets/data.json", 'r') as f:
     tweets = json.load(f)
 random.shuffle(tweets)
 train = tweets[:int(round(4*len(tweets)/5))]
@@ -68,6 +68,7 @@ numEpochs = 20
 history = model.fit(xtrain, ytrain, epochs=numEpochs, validation_data=(xtest, ytest), verbose=2)
 #model.summary()
 
+'''
 # graphs
 import matplotlib.pyplot as plt
 
@@ -84,7 +85,7 @@ plot_graphs(history, "loss")
 
 import seaborn as sn
 import matplotlib.pyplot as plt
-from sklearn.metrics import confusion_matrix, plot_precision_recall_curve, plot_roc_curve
+from sklearn.metrics import confusion_matrix
 import pandas as pd
 plt.figure()
 pred = tf.round(model.predict(xtestpadded))
@@ -94,7 +95,7 @@ sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size
 
 plt.show()
-
+'''
 
 # saving the tokenizer
 with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:

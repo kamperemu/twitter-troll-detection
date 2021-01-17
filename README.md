@@ -3,8 +3,6 @@
 this project is not a commercial product currently, its mostly used for research work.
 
 ## file name abbreviations
-### prefix
-bas - basic
 
 ### root word
 nn - neural network

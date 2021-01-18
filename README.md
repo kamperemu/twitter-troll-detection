@@ -15,8 +15,6 @@ NOTE: You can create your own dataset by creating a csv (with encoding unicode U
 The saved models are of the smaller dataset so for the better implementation you need to to run the models at least once
 
 ## file name abbreviations
-
-### root word
 nn - neural network
 
 nb - naive bayes

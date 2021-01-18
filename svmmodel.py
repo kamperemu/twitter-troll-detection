@@ -4,7 +4,7 @@ import pickle
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import accuracy_score
-from sklearn.svm import SVC
+from sklearn.svm import LinearSVC
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -94,7 +94,8 @@ print()
 
 print("training the model")
 #training the model
-svm=SVC(kernel='linear',C=10,gamma=100)
+#svm=SVC(kernel='linear',C=10,gamma=100,cache_size=10000)
+svm=LinearSVC()
 #svmBow=svm.fit(cvxtrain,ytrain)
 svmTfidf=svm.fit(tvxtrain,ytrain)
 print("model trained")

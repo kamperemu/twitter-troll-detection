@@ -61,8 +61,6 @@ https://www.kaggle.com/vikasg/russian-troll-tweets?ref=hackernoon.com
 
 https://www.kaggle.com/kazanova/sentiment140
 
-https://www.kaggle.com/dataturks/dataset-for-detection-of-cybertrolls
-
 https://www.data.gouv.fr/fr/datasets/credibility-corpus-with-several-datasets-twitter-web-database-in-french-and-english/?ref=hackernoon.com#_
 
 https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBXKFD&version=2.2
@@ -74,19 +72,3 @@ https://github.com/fivethirtyeight/russian-troll-tweets
 https://www.kaggle.com/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews
 
 https://goo.gle/tfw-sarcembed
-
-### 4. research
-
-https://www.dsayce.com/social-media/tweets-day/
-
-https://www.investopedia.com/terms/m/machine-learning.asp
-
-https://monkeylearn.com/blog/what-is-tf-idf/
-
-https://www.analyticsvidhya.com/blog/2020/02/quick-introduction-bag-of-words-bow-tf-idf/
-
-https://www.machinelearningplus.com/predictive-modeling/how-naive-bayes-algorithm-works-with-example-and-full-code/
-
-https://machinelearningmastery.com/logistic-regression-for-machine-learning/#:~:text=Logistic%20regression%20uses%20an%20equation,an%20output%20value%20(y).
-
-https://towardsdatascience.com/support-vector-machine-introduction-to-machine-learning-algorithms-934a444fca47

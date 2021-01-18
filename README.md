@@ -12,6 +12,8 @@ You can change the smallerdata.json file to data.json file if you want to try ou
 
 NOTE: You can create your own dataset by creating a csv (with encoding unicode UTF-8) with headers content and label where the content has tweets and the label says whether the data is a troll or not (the label doesn't necessarily have to classify trolls it could classify whatever you want)
 
+The saved models are of the smaller dataset so for the better implementation you need to to run the models at least once
+
 ## file name abbreviations
 
 ### root word
@@ -31,8 +33,32 @@ check millions of messages that are uploaded everyday. Therefore, using AI to de
 Different models like SVM, neural networks, logistic regression can be used. These can also be used with pre-trained Natural Language Processing(NLP) models
 and combine it with the former models. These models are used to find out whether or not the message content is a troll or not by discovering patterns in these tweets We can then choose the most accurate model for direct implementation.
 
+## Recommendations
+
+https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
+
+https://www.youtube.com/watch?v=yIYKR4sgzI8
+
+https://www.youtube.com/watch?v=O2L2Uv9pdDA
+
+https://www.youtube.com/watch?v=efR1C6CvhmE
+
+https://www.youtube.com/watch?v=Kdsp6soqA7o
+
 ## References
-### 1. Datasets
+### 1. Modules
+
+https://www.nltk.org/
+
+https://scikit-learn.org/
+
+https://matplotlib.org/
+
+https://seaborn.pydata.org/
+
+https://numpy.org/
+
+### 2. Datasets
 
 https://www.kaggle.com/crowdflower/twitter-user-gender-classification
 
@@ -48,13 +74,13 @@ https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBXKFD&
 
 https://github.com/fivethirtyeight/russian-troll-tweets
 
-### 2. Algorithms
+### 3. Algorithms
 
 https://www.kaggle.com/lakshmi25npathi/sentiment-analysis-of-imdb-movie-reviews
 
 https://goo.gle/tfw-sarcembed
 
-### 3. research
+### 4. research
 
 https://www.dsayce.com/social-media/tweets-day/
 

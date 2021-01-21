@@ -8,12 +8,9 @@ from tensorflow.keras.preprocessing.sequence import pad_sequences
 import pickle
 
 # predefined variables
-vocabSize = 10000
-outputDim = 16
 maxInput = 200
 truncType='post'
 padType='post'
-oov = "<OOV>"
 
 # loading the tokenizer and model
 with open('savedModel/nn/basic/tokenizer.pickle', 'rb') as file:

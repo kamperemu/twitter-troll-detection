@@ -94,7 +94,6 @@ print()
 
 print("training the model")
 #training the model
-#svm=SVC(kernel='linear',C=10,gamma=100,cache_size=10000)
 svm=LinearSVC()
 #svmBow=svm.fit(cvxtrain,ytrain)
 svmTfidf=svm.fit(tvxtrain,ytrain)

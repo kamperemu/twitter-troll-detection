@@ -20,7 +20,7 @@ padType='post'
 oov = "<OOV>"
 
 print("loading dataset")
-# training data and testing data
+# loading data
 with open("datasets/data.json", 'r') as f:
     tweets = json.load(f)
 random.shuffle(tweets)

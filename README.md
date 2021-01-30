@@ -18,6 +18,8 @@ NOTE: You can create your own dataset by creating a csv (with encoding unicode U
 
 The saved models are of the smaller dataset so for the better implementation you need to to run the models at least once
 
+If you want to check out the jupyter notebooks you will have to install jupyter notebook using pip and then you can type jupyter notebook in terminal in the file location of the notebook and then click on the notebook. The notebooks are for demonstration purposes.
+
 ## file name abbreviations
 nn - neural network
 

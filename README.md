@@ -23,18 +23,6 @@ svm - support vector machine
 
 lr - logistic regression
 
-## Recommendations
-
-https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi
-
-https://www.youtube.com/watch?v=yIYKR4sgzI8
-
-https://www.youtube.com/watch?v=O2L2Uv9pdDA
-
-https://www.youtube.com/watch?v=efR1C6CvhmE
-
-https://www.youtube.com/watch?v=Kdsp6soqA7o
-
 ## References
 
 ### 1. Modules

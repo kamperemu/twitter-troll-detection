@@ -8,7 +8,6 @@ sentences = [str(input("enter sentence:")) for _ in range(n)]
 for i in range(len(sentences)):
     sentences[i] = removespchar(sentences[i])
     sentences[i] = stemmer(sentences[i])
-    sentences[i] = removestopwords(sentences[i])
 # loading model
 tv = pickle.load(open("savedModel/svm/Tfidf.sav","rb"))
 cv = pickle.load(open("savedModel/svm/bow.sav","rb"))

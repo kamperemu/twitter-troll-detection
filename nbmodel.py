@@ -61,12 +61,11 @@ print("preprocessing data")
 for i in range(len(xtrain)):
     xtrain[i] = removespchar(xtrain[i])
     xtrain[i] = stemmer(xtrain[i])
-    xtrain[i] = removestopwords(xtrain[i])
 
 for i in range(len(xtest)):
     xtest[i] = removespchar(xtest[i])
     xtest[i] = stemmer(xtest[i])
-    xtest[i] = removestopwords(xtest[i])
+    
 print("data preprocessed")
 print()
 print()

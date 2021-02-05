@@ -1,6 +1,8 @@
 # Twitter Troll Detection
 
-this project is not a commercial product currently, its mostly used for research work.
+this project is not a commercial product currently, its mostly used for research work. 
+
+The project is also a work in progress so there may be differences between versions. (so there may be discrepancies in the research paper and the algorithms)
 
 ## Abstract
 
@@ -9,14 +11,6 @@ In the present age of social media websites, trolls are inevitable. Trolls are p
 ## Instructions
 
 You need to install the following modules on python 3.8.5 - tensorflow,numpy,pickle,matplotlib,seaborn,sklearn,pandas,nltk
-
-extract the data.rar file in order to use the main dataset
-
-You can change the smallerdata.json file to data.json file if you want to try out the faster dataset (The smallerdata.json has only 30,000 tweets while the main file has 1,000,000 tweets). The smallerdata dataset will take significantly less time than the main dataset.
-
-NOTE: You can create your own dataset by creating a csv (with encoding unicode UTF-8) with headers content and label where the content has tweets and the label says whether the data is a troll or not (the label doesn't necessarily have to classify trolls it could classify whatever you want)
-
-The saved models are of the smaller dataset so for the better implementation you need to to run the models at least once
 
 If you want to check out the jupyter notebooks you will have to install jupyter notebook using pip and then you can type jupyter notebook in terminal in the file location of the notebook and then click on the notebook. The notebooks are for demonstration purposes.
 
@@ -57,17 +51,9 @@ https://numpy.org/
 
 ### 2. Datasets
 
-https://www.kaggle.com/crowdflower/twitter-user-gender-classification
-
 https://www.kaggle.com/vikasg/russian-troll-tweets?ref=hackernoon.com 
 
 https://www.kaggle.com/kazanova/sentiment140
-
-https://www.data.gouv.fr/fr/datasets/credibility-corpus-with-several-datasets-twitter-web-database-in-french-and-english/?ref=hackernoon.com#_
-
-https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/JBXKFD&version=2.2
-
-https://github.com/fivethirtyeight/russian-troll-tweets
 
 ### 3. Algorithms
 

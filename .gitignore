@@ -2,5 +2,4 @@
 temp/
 __pycache__
 raw
-datasets/data.json
 .ipynb_checkpoints

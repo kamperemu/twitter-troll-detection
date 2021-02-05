@@ -9,13 +9,13 @@ for i in range(len(sentences)):
     sentences[i] = removespchar(sentences[i])
     sentences[i] = stemmer(sentences[i])
 # loading model
-tv = pickle.load(open("savedModel/lr/Tfidf.sav","rb"))
+# tv = pickle.load(open("savedModel/lr/Tfidf.sav","rb"))
 cv = pickle.load(open("savedModel/lr/bow.sav","rb"))
 lrBow = pickle.load(open("savedModel/lr/bowmodel.sav", 'rb'))
-lrTfidf = pickle.load(open("savedModel/lr/tfidfmodel.sav", 'rb'))
+# lrTfidf = pickle.load(open("savedModel/lr/tfidfmodel.sav", 'rb'))
 # prediction
-tvsentences = tv.transform(sentences)
+# tvsentences = tv.transform(sentences)
 cvsentences = cv.transform(sentences)
 print(lrBow.predict(cvsentences))
-print(lrTfidf.predict(tvsentences))
+# print(lrTfidf.predict(tvsentences))
 

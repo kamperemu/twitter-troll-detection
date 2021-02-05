@@ -114,9 +114,9 @@ plt.show()
 '''
 print("saving the encoder and model")
 # saving the tokenizer
-with open('savedModel/nn/basic/tokenizer.pickle', 'wb') as handle:
+with open('savedModel/nn/tokenizer.pickle', 'wb') as handle:
     pickle.dump(tokenizer, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 # saving trained model
-model.save("savedModel/nn/basic/model")
+model.save("savedModel/nn/model")
 print("encoder and model saved")

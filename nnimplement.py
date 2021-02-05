@@ -13,10 +13,10 @@ truncType='post'
 padType='post'
 
 # loading the tokenizer and model
-with open('savedModel/nn/basic/tokenizer.pickle', 'rb') as file:
+with open('savedModel/nn/tokenizer.pickle', 'rb') as file:
     tokenizer = pickle.load(file)
 
-model = tf.keras.models.load_model("savedModel/nn/basic/model")
+model = tf.keras.models.load_model("savedModel/nn/model")
 
 n = int(input("no of sentences: "))
 sentences = [input("Enter sentence:") for _ in range(n)]

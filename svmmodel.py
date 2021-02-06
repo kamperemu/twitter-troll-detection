@@ -55,7 +55,7 @@ print()
 
 # common for json and csv
 print("encoding data")
-
+'''
 #Count vectorizer for bag of words
 cv=CountVectorizer(min_df=0,max_df=1,binary=False,ngram_range=(1,3))
 cvxtrain=cv.fit_transform(xtrain)
@@ -65,7 +65,7 @@ cvxtest=cv.transform(xtest)
 tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
 tvxtest=tv.transform(xtest)
-'''
+
 print("data encoded")
 print()
 print()
@@ -75,26 +75,26 @@ print()
 print("training the model")
 #training the model
 svm=LinearSVC()
-svmBow=svm.fit(cvxtrain,ytrain)
-#svmTfidf=svm.fit(tvxtrain,ytrain)
+# svmBow=svm.fit(cvxtrain,ytrain)
+svmTfidf=svm.fit(tvxtrain,ytrain)
 print("model trained")
 print()
 print()
 print()
 print()
-pred = svmBow.predict(cvxtest)
-print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-# pred = svmTfidf.predict(tvxtest)
+# pred = svmBow.predict(cvxtest)
 # print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+pred = svmTfidf.predict(tvxtest)
+print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
 print()
 print()
 print()
 print()
 print("saving the encoder and model")
-pickle.dump(svmBow, open("savedModel/svm/bowmodel.sav","wb"))
-# pickle.dump(svmTfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
-# pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
-pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
+# pickle.dump(svmBow, open("savedModel/svm/bowmodel.sav","wb"))
+pickle.dump(svmTfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
+pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
+# pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
 print("encoder and model saved")
 
 '''

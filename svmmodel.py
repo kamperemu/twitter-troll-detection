@@ -55,12 +55,12 @@ print()
 
 # common for json and csv
 print("encoding data")
-'''
+
 #Count vectorizer for bag of words
 cv=CountVectorizer(min_df=0,max_df=1,binary=False,ngram_range=(1,3))
 cvxtrain=cv.fit_transform(xtrain)
 cvxtest=cv.transform(xtest)
-'''
+
 #Tfidf vectorizer
 tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
@@ -75,26 +75,26 @@ print()
 print("training the model")
 #training the model
 svm=LinearSVC()
-# svmBow=svm.fit(cvxtrain,ytrain)
+svmBow=svm.fit(cvxtrain,ytrain)
 svmTfidf=svm.fit(tvxtrain,ytrain)
 print("model trained")
 print()
 print()
 print()
 print()
-# pred = svmBow.predict(cvxtest)
-# print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = svmTfidf.predict(tvxtest)
-print("Support Vector Machine Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+predBoW = svmBow.predict(cvxtest)
+print("Support Vector Machine (BoW) Accuracy Score -> ",accuracy_score(predBoW, ytest)*100)
+predTfidf = svmTfidf.predict(tvxtest)
+print("Support Vector Machine (Tfidf) Accuracy Score -> ",accuracy_score(predTfidf, ytest)*100)
 print()
 print()
 print()
 print()
 print("saving the encoder and model")
-# pickle.dump(svmBow, open("savedModel/svm/bowmodel.sav","wb"))
+pickle.dump(svmBow, open("savedModel/svm/bowmodel.sav","wb"))
 pickle.dump(svmTfidf, open("savedModel/svm/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/svm/Tfidf.sav","wb"))
-# pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
+pickle.dump(cv, open("savedModel/svm/bow.sav","wb"))
 print("encoder and model saved")
 
 '''
@@ -104,7 +104,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import pandas as pd
 
-array = confusion_matrix(ytest,pred,labels=[1,0])
+array = confusion_matrix(ytest,predBoW,labels=[1,0])
 df_cm = pd.DataFrame(array, range(2), range(2))
 sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size

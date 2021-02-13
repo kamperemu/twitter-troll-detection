@@ -1,5 +1,5 @@
 .vscode
-temp/
 __pycache__
 raw
 .ipynb_checkpoints
+BERTmodel.py

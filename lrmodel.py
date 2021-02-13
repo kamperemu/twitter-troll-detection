@@ -55,12 +55,12 @@ print()
 
 # common for json and csv
 print("encoding data")
-'''
+
 #Count vectorizer for bag of words
 cv=CountVectorizer(min_df=0,max_df=1,binary=False,ngram_range=(1,3))
 cvxtrain=cv.fit_transform(xtrain)
 cvxtest=cv.transform(xtest)
-'''
+
 #Tfidf vectorizer
 tv=TfidfVectorizer(min_df=0,max_df=1,use_idf=True,ngram_range=(1,3))
 tvxtrain=tv.fit_transform(xtrain)
@@ -74,26 +74,26 @@ print()
 print("training the model")
 #training the model
 lr=LogisticRegression(penalty='l2',max_iter=500,C=1,random_state=42)
-# lrBow=lr.fit(cvxtrain,ytrain)
+lrBow=lr.fit(cvxtrain,ytrain)
 lrTfidf=lr.fit(tvxtrain,ytrain)
 print("model trained")
 print()
 print()
 print()
 print()
-# pred = lrBow.predict(cvxtest)
-# print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
-pred = lrTfidf.predict(tvxtest)
-print("Logistic regression Accuracy Score -> ",accuracy_score(pred, ytest)*100)
+predBoW = lrBow.predict(cvxtest)
+print("Logistic regression (BoW) Accuracy Score -> ",accuracy_score(predBoW, ytest)*100)
+predTfidf = lrTfidf.predict(tvxtest)
+print("Logistic regression (Tfidf) Accuracy Score -> ",accuracy_score(predTfidf, ytest)*100)
 print()
 print()
 print()
 print()
 print("saving the encoder and model")
-# pickle.dump(lrBow, open("savedModel/lr/bowmodel.sav","wb"))
+pickle.dump(lrBow, open("savedModel/lr/bowmodel.sav","wb"))
 pickle.dump(lrTfidf, open("savedModel/lr/tfidfmodel.sav","wb"))
 pickle.dump(tv, open("savedModel/lr/Tfidf.sav","wb"))
-# pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))
+pickle.dump(cv, open("savedModel/lr/bow.sav","wb"))
 print("encoder and model saved")
 '''
 # graphs
@@ -102,7 +102,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 import pandas as pd
 
-array = confusion_matrix(ytest,pred,labels=[1,0])
+array = confusion_matrix(ytest,predBoW,labels=[1,0])
 df_cm = pd.DataFrame(array, range(2), range(2))
 sn.set(font_scale=1.4) # for label size
 sn.heatmap(df_cm, annot=True, annot_kws={"size": 16}) # font size

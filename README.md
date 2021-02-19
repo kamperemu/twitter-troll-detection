@@ -10,7 +10,7 @@ In the present age of social media websites, trolls are inevitable. Trolls are p
 
 ## Instructions
 
-You need to install the following modules on python 3.8.5 - tensorflow 2.4.0,numpy 1.18.5,matplotlib 3.3.2,seaborn 0.11.1,sklearn,nltk 3.5
+You need to install the following modules on python 3.8.5 - tensorflow 2.4.0,numpy 1.16.0,matplotlib 3.3.2,seaborn 0.11.1,sklearn,nltk 3.5,pandas
 
 If you want to check out the jupyter notebooks you will have to install jupyter notebook using pip and then you can type jupyter notebook in terminal in the file location of the notebook and then click on the notebook. The notebooks are for demonstration purposes.
 
@@ -36,6 +36,8 @@ https://matplotlib.org/
 https://seaborn.pydata.org/
 
 https://numpy.org/
+
+https://pandas.pydata.org/
 
 ### 2. Datasets
 

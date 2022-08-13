@@ -10,23 +10,9 @@ In the present age of social media websites, trolls are inevitable. Trolls are p
 
 ## Instructions
 
-You need to install the following modules using pip on python 3.8.5 :
+I used python 3.9.13 for this so install that if you can for tested compatibility. Also make sure its 64 bit version of python or else some packages will not install.
 
-tensorflow 2.4.0
-
-numpy 1.16.0
-
-matplotlib 3.3.2
-
-seaborn 0.11.1
-
-sklearn (no specific version)
-
-nltk 3.5
-
-pandas (no specific version)
-
-If you want to check out the jupyter notebooks you will have to install jupyter notebook using pip and then you can type jupyter notebook in terminal in the file location of the notebook and then click on the notebook. The notebooks are for demonstration purposes.
+Use "pip install -r requirements.txt" in a cli to install all packages required. (Optional: You can also create a venv before installing the packages)
 
 ## file name abbreviations
 nn - neural network

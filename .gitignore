@@ -3,3 +3,4 @@ __pycache__
 raw
 .ipynb_checkpoints
 BERTmodel.py
+venv

@@ -1,5 +1,7 @@
 # Twitter Troll Detection
 
+## [Research report](https://drive.google.com/file/d/1U5aCkfYpXaT2ELI5aioI8qicHOSjgPHc/view?usp=share_link)
+
 this project is not a commercial product currently, its mostly used for research work. 
 
 The project is also a work in progress so there may be differences between versions. (so there may be discrepancies in the research paper and the algorithms)
